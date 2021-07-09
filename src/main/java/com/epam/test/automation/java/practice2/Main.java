@@ -53,25 +53,22 @@ n = 14 = 1110 result = 3
 n = 128 = 1000 0000 result = 1
          */
         String binaryString = "";
-        double convertedDouble = 0;
+        int valueOfOneInBinaryString = 0;
 
-        if (n > 0) {
-            binaryString = Integer.toString(n);
-            for (int i = 0; i < binaryString.length(); i++) {
-
-                if (binaryString.charAt(i) == '1') {
-                    int len = binaryString.length() - 1 - i;
-                    convertedDouble += Math.pow(2, len);
-                }
-            }
-
-        } else {
-            throw new IllegalArgumentException();
+        binaryString = Integer.toString(n,2);
+        List<String> binaryStringSeparator = Arrays.asList(binaryString.split("")); //separator
+        List<Integer> listOfSeparatedNumbersToInteger = new ArrayList<Integer>(binaryStringSeparator.size()); // convert to int array
+        for (String myInt : binaryStringSeparator) {
+            listOfSeparatedNumbersToInteger.add(Integer.valueOf(myInt));
         }
-        int convertedInt = (int) convertedDouble;
-        return convertedInt;
-
+        listOfSeparatedNumbersToInteger.removeIf(number -> number == 0); // if n == 0 delete from array of int
+        for (Integer integer : listOfSeparatedNumbersToInteger) {   //sum of array
+            valueOfOneInBinaryString += integer;
+        }
+        return valueOfOneInBinaryString;
     }
+
+
 
     /**
      * <summary>
@@ -81,15 +78,6 @@ n = 128 = 1000 0000 result = 1
     public static int task3(int value) {
         //TODO: Delete line below and write your own solution;
         throw new UnsupportedOperationException();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(task2(100000));
-        System.out.println(task2(11000011010100000));
-        System.out.println(task2(10110000010));
-        System.out.println(task2(1111111111111111111111111111111));
-
-
     }
 
 
