@@ -21,7 +21,8 @@ public class Main {
 
         for (Iterator<Integer> iterator = newListStringValueToInteger.iterator(); iterator.hasNext();) {
             Integer number = iterator.next();
-            if (number % 2 == 0) {
+
+            if (number > 0 || number == 0 || number % 2 == 0) {
                 iterator.remove();
             }
 
@@ -31,7 +32,7 @@ public class Main {
         for(int i = 0; i < newListStringValueToInteger.size(); i++){
             sum += newListStringValueToInteger.get(i);
         }
-        
+
         return sum;
     }
 
