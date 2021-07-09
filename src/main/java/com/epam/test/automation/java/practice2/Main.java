@@ -56,16 +56,12 @@ n = 128 = 1000 0000 result = 1
         int result = 0;
 
         if (n > 0) {
-            s = String.valueOf(n);
+            s = Integer.toString(n, 2);
 
-            result = Integer.parseInt(s, 2);
-
-//            s = ((n % 2) == 0 ? "0" : "1") + s;
-//            n = n / 2;
         } else {
             throw new IllegalArgumentException();
         }
-       // result = Integer.valueOf(s);
+        result = Integer.valueOf(s);
         return result;
 
     }
