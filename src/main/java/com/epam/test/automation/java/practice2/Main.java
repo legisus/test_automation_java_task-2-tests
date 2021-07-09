@@ -13,8 +13,6 @@ public class Main {
      */
     public static int task1(int value) {
         int sum = 0;
-
-
         List<String> numbersListToString = Arrays.asList(String.valueOf(value).split(""));
         List<Integer> newListStringValueToInteger = new ArrayList<>(numbersListToString.size());
         for (String myInt : numbersListToString) {
@@ -25,7 +23,6 @@ public class Main {
                 throw new IllegalArgumentException();
             }
         }
-
         newListStringValueToInteger.removeIf(number -> number % 2 == 0);
         Collections.sort(newListStringValueToInteger);
 
@@ -41,10 +38,9 @@ public class Main {
      * </summary>
      */
     public static int task2(int n) {
-        if(n > 0) {
+        if (n > 0) {
             String binaryString = "";
             int valueOfOneInBinaryString = 0;
-
             binaryString = Integer.toString(n, 2);
             List<String> binaryStringSeparator = Arrays.asList(binaryString.split("")); //separator
             List<Integer> listOfSeparatedNumbersToInteger = new ArrayList<Integer>(binaryStringSeparator.size()); // convert to int array
@@ -56,12 +52,10 @@ public class Main {
                 valueOfOneInBinaryString += integer;
             }
             return valueOfOneInBinaryString;
-        }else {
+        } else {
             throw new IllegalArgumentException();
         }
     }
-
-
 
     /**
      * <summary>
@@ -69,8 +63,27 @@ public class Main {
      * </summary>
      */
     public static int task3(int value) {
-        //TODO: Delete line below and write your own solution;
-        throw new UnsupportedOperationException();
+        if (value > 0) {
+            int resultValueOfIntegersBeforeInput = 0;
+            List<Integer> fiboNumbersList = new ArrayList<>();
+            int first = 0;
+            int second = 1;
+            int fib;
+            fiboNumbersList.add(first);
+            fiboNumbersList.add(second);
+
+            for (int i = 2; i < value; i++) {
+                fib = second + first;
+                first = second;
+                second = fib;
+                fiboNumbersList.add(fib);
+            }
+            for (Integer integer : fiboNumbersList) {   //sum of array
+                resultValueOfIntegersBeforeInput += integer;
+            }
+            return resultValueOfIntegersBeforeInput;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
-    
 }
