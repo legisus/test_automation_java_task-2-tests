@@ -41,31 +41,24 @@ public class Main {
      * </summary>
      */
     public static int task2(int n) {
-        /*
-        For a positive integer n calculate the result value, which is equal to the amount of the “1” in the binary
+        if(n > 0) {
+            String binaryString = "";
+            int valueOfOneInBinaryString = 0;
 
-representation of n.
-
-Example,
-
-n = 14 = 1110 result = 3
-
-n = 128 = 1000 0000 result = 1
-         */
-        String binaryString = "";
-        int valueOfOneInBinaryString = 0;
-
-        binaryString = Integer.toString(n,2);
-        List<String> binaryStringSeparator = Arrays.asList(binaryString.split("")); //separator
-        List<Integer> listOfSeparatedNumbersToInteger = new ArrayList<Integer>(binaryStringSeparator.size()); // convert to int array
-        for (String myInt : binaryStringSeparator) {
-            listOfSeparatedNumbersToInteger.add(Integer.valueOf(myInt));
+            binaryString = Integer.toString(n, 2);
+            List<String> binaryStringSeparator = Arrays.asList(binaryString.split("")); //separator
+            List<Integer> listOfSeparatedNumbersToInteger = new ArrayList<Integer>(binaryStringSeparator.size()); // convert to int array
+            for (String myInt : binaryStringSeparator) {
+                listOfSeparatedNumbersToInteger.add(Integer.valueOf(myInt));
+            }
+            listOfSeparatedNumbersToInteger.removeIf(number -> number == 0); // if n == 0 delete from array of int
+            for (Integer integer : listOfSeparatedNumbersToInteger) {   //sum of array
+                valueOfOneInBinaryString += integer;
+            }
+            return valueOfOneInBinaryString;
+        }else {
+            throw new IllegalArgumentException();
         }
-        listOfSeparatedNumbersToInteger.removeIf(number -> number == 0); // if n == 0 delete from array of int
-        for (Integer integer : listOfSeparatedNumbersToInteger) {   //sum of array
-            valueOfOneInBinaryString += integer;
-        }
-        return valueOfOneInBinaryString;
     }
 
 
@@ -79,6 +72,5 @@ n = 128 = 1000 0000 result = 1
         //TODO: Delete line below and write your own solution;
         throw new UnsupportedOperationException();
     }
-
-
+    
 }
