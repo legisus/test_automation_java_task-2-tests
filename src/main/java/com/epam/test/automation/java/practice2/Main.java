@@ -52,17 +52,24 @@ n = 14 = 1110 result = 3
 
 n = 128 = 1000 0000 result = 1
          */
-        String s = "";
-        int result = 0;
+        String binaryString = "";
+        double convertedDouble = 0;
 
         if (n > 0) {
-            s = Integer.toString(n, 2);
+            binaryString = Integer.toString(n);
+            for (int i = 0; i < binaryString.length(); i++) {
+
+                if (binaryString.charAt(i) == '1') {
+                    int len = binaryString.length() - 1 - i;
+                    convertedDouble += Math.pow(2, len);
+                }
+            }
 
         } else {
             throw new IllegalArgumentException();
         }
-        result = Integer.valueOf(s);
-        return result;
+        int convertedInt = (int) convertedDouble;
+        return convertedInt;
 
     }
 
@@ -75,5 +82,15 @@ n = 128 = 1000 0000 result = 1
         //TODO: Delete line below and write your own solution;
         throw new UnsupportedOperationException();
     }
+
+    public static void main(String[] args) {
+        System.out.println(task2(100000));
+        System.out.println(task2(11000011010100000));
+        System.out.println(task2(10110000010));
+        System.out.println(task2(1111111111111111111111111111111));
+
+
+    }
+
 
 }
