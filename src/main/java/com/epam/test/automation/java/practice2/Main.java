@@ -1,7 +1,5 @@
 package com.epam.test.automation.java.practice2;
 
-import java.lang.reflect.Array;
-import java.math.BigDecimal;
 import java.util.*;
 
 public class Main {
@@ -43,7 +41,7 @@ public class Main {
             int valueOfOneInBinaryString = 0;
             binaryString = Integer.toString(n, 2);
             List<String> binaryStringSeparator = Arrays.asList(binaryString.split("")); //separator
-            List<Integer> listOfSeparatedNumbersToInteger = new ArrayList<Integer>(binaryStringSeparator.size()); // convert to int array
+            List<Integer> listOfSeparatedNumbersToInteger = new ArrayList<>(binaryStringSeparator.size()); // convert to int array
             for (String myInt : binaryStringSeparator) {
                 listOfSeparatedNumbersToInteger.add(Integer.valueOf(myInt));
             }
