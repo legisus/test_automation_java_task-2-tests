@@ -63,7 +63,9 @@ public class Main {
      * </summary>
      */
     public static int task3(int value) {
-        if (value > 0) {
+        int ifOne;
+
+        if (value > 1) {
             int resultValueOfIntegersBeforeInput = 0;
             List<Integer> fiboNumbersList = new ArrayList<>();
             int first = 0;
@@ -82,6 +84,9 @@ public class Main {
                 resultValueOfIntegersBeforeInput += integer;
             }
             return resultValueOfIntegersBeforeInput;
+        }else if (value == 1){
+            ifOne = 0;
+            return ifOne;
         } else {
             throw new IllegalArgumentException();
         }
