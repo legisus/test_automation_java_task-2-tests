@@ -14,23 +14,21 @@ public class Main {
         int sum = 0;
 
         List<String> numbersListToString = Arrays.asList(String.valueOf(value).split(""));
-        List<Integer> newListStringValueToInteger = new ArrayList<Integer>(numbersListToString.size());
+        List<Integer> newListStringValueToInteger = new ArrayList<>(numbersListToString.size());
         for (String myInt : numbersListToString) {
             newListStringValueToInteger.add(Integer.valueOf(myInt));
         }
-
-        for (Iterator<Integer> iterator = newListStringValueToInteger.iterator(); iterator.hasNext();) {
-            Integer number = iterator.next();
-
-            if (number > 0 || number == 0 || number % 2 == 0) {
-                iterator.remove();
+        for (Integer number : newListStringValueToInteger) {
+            if (number < 0 || number == 0) {
+                throw new IllegalArgumentException();
             }
-
         }
+
+        newListStringValueToInteger.removeIf(number -> number % 2 == 0);
         Collections.sort(newListStringValueToInteger);
 
-        for(int i = 0; i < newListStringValueToInteger.size(); i++){
-            sum += newListStringValueToInteger.get(i);
+        for (Integer integer : newListStringValueToInteger) {
+            sum += integer;
         }
 
         return sum;
